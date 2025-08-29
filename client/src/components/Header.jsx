@@ -1,0 +1,159 @@
+import React, { useState } from 'react';
+import { BookOpen, Menu, X } from 'lucide-react';
+import { Button } from './ui/Button';
+import { RegistrationModal } from './modals/RegistrationModal';
+
+export const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const openRegistrationModal = () => {
+    setIsRegistrationModalOpen(true);
+    closeMobileMenu(); // Close mobile menu if open
+  };
+
+  const closeRegistrationModal = () => {
+    setIsRegistrationModalOpen(false);
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      closeMobileMenu();
+    }
+  };
+
+  return (
+    <header className="w-full py-4 px-6 md:px-10 bg-white shadow-sm fixed top-0 left-0 z-50">
+      <nav className="container mx-auto flex justify-between items-center">
+        <a href="#" className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+          <BookOpen className="text-blue-900 w-7 h-7" />
+          SUCCEED HOUSE OF ENGLISH
+        </a>
+        
+        <div className="hidden md:flex space-x-8 items-center">
+          <button 
+            onClick={() => scrollToSection('about')}
+            className="text-gray-600 hover:text-blue-900 font-medium transition duration-300"
+          >
+            About Us
+          </button>
+          <button 
+            onClick={() => scrollToSection('gallery')}
+            className="text-gray-600 hover:text-blue-900 font-medium transition duration-300"
+          >
+            Gallery
+          </button>
+          <button 
+            onClick={() => scrollToSection('courses')}
+            className="text-gray-600 hover:text-blue-900 font-medium transition duration-300"
+          >
+            Courses
+          </button>
+          <button 
+            onClick={() => scrollToSection('testimonials')}
+            className="text-gray-600 hover:text-blue-900 font-medium transition duration-300"
+          >
+            Testimonials
+          </button>
+          <button 
+            onClick={() => scrollToSection('faq')}
+            className="text-gray-600 hover:text-blue-900 font-medium transition duration-300"
+          >
+            FAQ
+          </button>
+          <Button 
+            variant="secondary"
+            size="sm" 
+            onClick={openRegistrationModal}
+            className="border-orange-500 text-orange-500 hover:bg-orange-50"
+          >
+            Register Now
+          </Button>
+          <Button size="sm" onClick={() => scrollToSection('contact')}>
+            Enroll Now
+          </Button>
+        </div>
+        
+        <button 
+          onClick={toggleMobileMenu}
+          className="md:hidden p-2 rounded-md hover:bg-gray-100 transition duration-300"
+        >
+          <Menu className="w-6 h-6 text-gray-700" />
+        </button>
+      </nav>
+      
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <div className="flex justify-end p-4">
+          <button 
+            onClick={closeMobileMenu}
+            className="p-2 rounded-md hover:bg-gray-100 transition duration-300"
+          >
+            <X className="w-6 h-6 text-gray-700" />
+          </button>
+        </div>
+        <nav className="flex flex-col items-center space-y-6 py-10">
+          <button 
+            onClick={() => scrollToSection('about')}
+            className="text-gray-800 text-lg hover:text-blue-900 font-medium"
+          >
+            About Us
+          </button>
+          <button 
+            onClick={() => scrollToSection('gallery')}
+            className="text-gray-800 text-lg hover:text-blue-900 font-medium"
+          >
+            Gallery
+          </button>
+          <button 
+            onClick={() => scrollToSection('courses')}
+            className="text-gray-800 text-lg hover:text-blue-900 font-medium"
+          >
+            Courses
+          </button>
+          <button 
+            onClick={() => scrollToSection('testimonials')}
+            className="text-gray-800 text-lg hover:text-blue-900 font-medium"
+          >
+            Testimonials
+          </button>
+          <button 
+            onClick={() => scrollToSection('faq')}
+            className="text-gray-800 text-lg hover:text-blue-900 font-medium"
+          >
+            FAQ
+          </button>
+          <Button 
+            variant="secondary"
+            onClick={openRegistrationModal}
+            className="border-orange-500 text-orange-500 hover:bg-orange-50"
+          >
+            Register Now
+          </Button>
+          <Button size="lg" onClick={() => scrollToSection('contact')}>
+            Enroll Now
+          </Button>
+        </nav>
+      </div>
+      
+      <RegistrationModal 
+        isOpen={isRegistrationModalOpen}
+        onClose={closeRegistrationModal}
+      />
+    </header>
+  );
+};
