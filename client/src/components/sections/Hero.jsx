@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { RegistrationModal } from '../modals/RegistrationModal';
+import img from "../../../public/hero/banner1.jpg"
+import img1 from "../../../public/hero/banner2.jpg"
+import img2 from "../../../public/hero/banner3.jpg"
+import img3 from "../../../public/hero/banner4.jpg"
+
 
 
 
@@ -13,28 +18,28 @@ export const Hero = () => {
   const slides = [
     {
       id: '1',
-      src: 'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1920',
+      src:img,
       alt: 'Modern classroom with engaged students',
       title: 'Interactive Learning Environment',
       subtitle: 'Experience dynamic classrooms designed for effective English learning'
     },
     {
       id: '2',
-      src: 'https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&w=1920',
+      src: img1,
       alt: 'Expert teacher explaining concepts',
       title: 'Expert Instruction',
       subtitle: 'Learn from certified professionals with years of teaching experience'
     },
     {
       id: '3',
-      src: 'https://images.pexels.com/photos/5212700/pexels-photo-5212700.jpeg?auto=compress&cs=tinysrgb&w=1920',
+      src: img2,
       alt: 'Students collaborating in group discussion',
       title: 'Collaborative Learning',
       subtitle: 'Build confidence through interactive group activities and discussions'
     },
     {
       id: '4',
-      src: 'https://images.pexels.com/photos/5212662/pexels-photo-5212662.jpeg?auto=compress&cs=tinysrgb&w=1920',
+      src: img3,
       alt: 'Online learning setup with technology',
       title: 'Flexible Online Classes',
       subtitle: 'Access quality education from anywhere with our virtual classrooms'
