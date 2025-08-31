@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '../ui/Button';
 import { RevealWrapper } from '../ui/RevealWrapper';
 
 
 export const Gallery = () => {
+  const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
   const [activeFilter, setActiveFilter] = useState('all');
 
@@ -83,9 +86,8 @@ export const Gallery = () => {
     { id: 'events', label: 'Events' }
   ];
 
-  const filteredImages = activeFilter === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeFilter);
+  // Show only first 6 images on home page
+  const displayImages = galleryImages.slice(0, 6);
 
   const openLightbox = (image) => {
     setSelectedImage(image);
@@ -100,16 +102,16 @@ export const Gallery = () => {
   const navigateImage = (direction) => {
     if (!selectedImage) return;
     
-    const currentIndex = filteredImages.findIndex(img => img.id === selectedImage.id);
+    const currentIndex = displayImages.findIndex(img => img.id === selectedImage.id);
     let newIndex;
     
     if (direction === 'prev') {
-      newIndex = currentIndex > 0 ? currentIndex - 1 : filteredImages.length - 1;
+      newIndex = currentIndex > 0 ? currentIndex - 1 : displayImages.length - 1;
     } else {
-      newIndex = currentIndex < filteredImages.length - 1 ? currentIndex + 1 : 0;
+      newIndex = currentIndex < displayImages.length - 1 ? currentIndex + 1 : 0;
     }
     
-    setSelectedImage(filteredImages[newIndex]);
+    setSelectedImage(displayImages[newIndex]);
   };
 
   return (
@@ -127,28 +129,9 @@ export const Gallery = () => {
             </div>
           </RevealWrapper>
 
-          {/* Filter Buttons */}
-          <RevealWrapper delay={200}>
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveFilter(category.id)}
-                  className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                    activeFilter === category.id
-                      ? 'bg-orange-500 text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {category.label}
-                </button>
-              ))}
-            </div>
-          </RevealWrapper>
-
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredImages.map((image, index) => (
+            {displayImages.map((image, index) => (
               <RevealWrapper key={image.id} delay={100 * (index + 1)}>
                 <div 
                   className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
@@ -169,6 +152,19 @@ export const Gallery = () => {
               </RevealWrapper>
             ))}
           </div>
+
+          {/* View All Button */}
+          <RevealWrapper delay={800}>
+            <div className="text-center mt-12">
+              <Button
+                onClick={() => navigate('/gallery')}
+                size="lg"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg shadow-lg transform hover:scale-105"
+              >
+                View All Images ({galleryImages.length})
+              </Button>
+            </div>
+          </RevealWrapper>
         </div>
       </section>
 
@@ -209,6 +205,9 @@ export const Gallery = () => {
             <div className="absolute bottom-4 left-4 right-4 bg-black/50 text-white p-4 rounded-lg">
               <h3 className="font-semibold text-lg mb-1">{selectedImage.title}</h3>
               <p className="text-gray-200 capitalize">{selectedImage.category}</p>
+              <div className="text-right text-sm text-gray-300 mt-2">
+                {displayImages.findIndex(img => img.id === selectedImage.id) + 1} of {displayImages.length}
+              </div>
             </div>
           </div>
         </div>

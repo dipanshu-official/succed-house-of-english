@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { BookOpen, Menu, X } from "lucide-react";
 import { Button } from "./ui/Button";
 import { RegistrationModal } from "./modals/RegistrationModal";
 
 export const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
 
@@ -25,18 +28,35 @@ export const Header = () => {
   };
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      closeMobileMenu();
+    // If not on home page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
+    closeMobileMenu();
+  };
+
+  const handleGalleryClick = () => {
+    navigate('/gallery');
+    closeMobileMenu();
   };
 
   return (
     <header className="w-full py-4 px-6 md:px-10 bg-white shadow-sm fixed top-0 left-0 z-50">
       <nav className="container mx-auto flex justify-between items-center">
         <a
-          href="#"
+          onClick={() => navigate('/')}
           className="text-2xl font-bold text-gray-900 flex items-center gap-2"
         >
           <BookOpen className="text-blue-900 w-7 h-7" />
@@ -51,7 +71,7 @@ export const Header = () => {
             About Us
           </button>
           <button
-            onClick={() => scrollToSection("gallery")}
+            onClick={handleGalleryClick}
             className="text-gray-600 hover:text-orange-500 font-medium transition duration-300"
           >
             Gallery
@@ -121,7 +141,7 @@ export const Header = () => {
             About Us
           </button>
           <button
-            onClick={() => scrollToSection("gallery")}
+            onClick={handleGalleryClick}
             className="text-gray-800 text-lg hover:text-blue-900 font-medium"
           >
             Gallery
