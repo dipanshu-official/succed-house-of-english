@@ -87,10 +87,11 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
       onClose={onClose} 
       title="Register for English Courses"
       size="lg"
+      
     >
-      <div className="mb-6">
+      <div className="mb-6 ">
         {/* Progress Bar */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-4 ">
           {[1, 2, 3].map((step) => (
             <div key={step} className="flex items-center">
               <div
@@ -125,7 +126,7 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
       <form onSubmit={handleSubmit}>
         {/* Step 1: Personal Information */}
         {currentStep === 1 && (
-          <div className="space-y-6">
+          <div className="space-y-6 ">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
