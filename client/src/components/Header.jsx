@@ -77,6 +77,18 @@ export const Header = () => {
             Gallery
           </button>
           <button
+            onClick={() => scrollToSection("awards")}
+            className="text-gray-600 hover:text-orange-500 font-medium transition duration-300"
+          >
+            Awards
+          </button>
+          <button
+            onClick={() => scrollToSection("teachers")}
+            className="text-gray-600 hover:text-orange-500 font-medium transition duration-300"
+          >
+            Teachers
+          </button>
+          <button
             onClick={() => scrollToSection("courses")}
             className="text-gray-600 hover:text-orange-500 font-medium transition duration-300"
           >
@@ -145,6 +157,18 @@ export const Header = () => {
             className="text-gray-800 text-lg hover:text-blue-900 font-medium"
           >
             Gallery
+          </button>
+          <button
+            onClick={() => scrollToSection("awards")}
+            className="text-gray-800 text-lg hover:text-blue-900 font-medium"
+          >
+            Awards
+          </button>
+          <button
+            onClick={() => scrollToSection("teachers")}
+            className="text-gray-800 text-lg hover:text-blue-900 font-medium"
+          >
+            Teachers
           </button>
           <button
             onClick={() => scrollToSection("courses")}
