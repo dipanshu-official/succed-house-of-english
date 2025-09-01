@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookCheck, BarChart2, Smile, CalendarCheck, Puzzle, Award } from 'lucide-react';
+import { BookCheck, BarChart2, Smile, CalendarCheck, Puzzle, Award, BookOpen } from 'lucide-react';
 import { Card } from '../ui/Card';
 import { RevealWrapper } from '../ui/RevealWrapper';
 

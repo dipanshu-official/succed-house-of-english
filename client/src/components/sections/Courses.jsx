@@ -3,7 +3,7 @@ import { courses } from '../../data/courses';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { RevealWrapper } from '../ui/RevealWrapper';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, BookOpen } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 
 export const Courses = () => {
