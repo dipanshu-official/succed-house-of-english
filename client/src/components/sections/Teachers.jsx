@@ -24,27 +24,7 @@ export const Teachers = () => {
       experience: '10 Years',
       image: 'https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&w=400'
     },
-    {
-      id: '4',
-      name: 'James Wilson',
-      specialization: 'TOEFL & Test Prep',
-      experience: '15 Years',
-      image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400'
-    },
-    {
-      id: '5',
-      name: 'Dr. Priya Patel',
-      specialization: 'Grammar & Writing',
-      experience: '11 Years',
-      image: 'https://images.pexels.com/photos/5212662/pexels-photo-5212662.jpeg?auto=compress&cs=tinysrgb&w=400'
-    },
-    {
-      id: '6',
-      name: 'Robert Thompson',
-      specialization: 'General English',
-      experience: '9 Years',
-      image: 'https://images.pexels.com/photos/5212703/pexels-photo-5212703.jpeg?auto=compress&cs=tinysrgb&w=400'
-    }
+ 
   ];
 
   return (
@@ -69,17 +49,15 @@ export const Teachers = () => {
           {teachers.map((teacher) => (
             <div 
               key={teacher.id}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 text-center"
+              className=" rounded-lg   transition-shadow duration-300 p-6 text-center"
             >
               <div className="relative mb-4">
                 <img
                   src={teacher.image}
                   alt={teacher.name}
-                  className="w-24 h-24 rounded-full mx-auto object-cover"
+                  className="w-40 h-40 rounded-full mx-auto object-cover"
                 />
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                  {teacher.experience}
-                </div>
+               
               </div>
               
               <h3 className="text-lg font-bold text-gray-900 mb-2">
