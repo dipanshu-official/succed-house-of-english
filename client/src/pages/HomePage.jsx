@@ -7,8 +7,6 @@ import { Awards } from '../components/sections/Awards';
 import { Teachers } from '../components/sections/Teachers';
 import { Courses } from '../components/sections/Courses';
 import { Testimonials } from '../components/sections/Testimonials';
-import { CallToAction } from '../components/sections/CallToAction';
-import { FAQ } from '../components/sections/FAQ';
 import { Contact } from '../components/sections/Contact';
 
 export const HomePage = () => {
@@ -22,8 +20,6 @@ export const HomePage = () => {
       <Teachers />
       <Courses />
       <Testimonials />
-      <CallToAction />
-      <FAQ />
       <Contact />
     </main>
   );

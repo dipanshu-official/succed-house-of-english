@@ -52,7 +52,7 @@ export const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-16 md:py-24 bg-white">
+    <section id="features" className="py-16 md:py-24 bg-orange-50">
       
       <div className="container mx-auto px-6 text-center">
         <RevealWrapper>

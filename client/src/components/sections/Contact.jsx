@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { RevealWrapper } from '../ui/RevealWrapper';
+import React, { useState } from "react";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { Button } from "../ui/Button";
+import { RevealWrapper } from "../ui/RevealWrapper";
+import axios from "axios"
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    company: '',
-    message: ''
+    fullName: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,31 +18,45 @@ export const Contact = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
+    console.log("hi")
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({ fullName: '', email: '', company: '', message: '' });
-      setIsSubmitted(false);
-    }, 3000);
+
+    // Simulate form submission with realistic delay
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/send-email",
+        formData
+      );
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        message: "",
+      
+      });
+
+      if (response.status === 200) {
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+         
+        });
+      }
+    } catch (error) {
+      console.error(error.response?.data || error.message);
+      setStatus("Failed to send message.");
+    }
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-white">
-      
+    <section id="contact" className="py-16 md:py-24 bg-orange-50">
       <div className="container mx-auto px-6">
         <RevealWrapper>
           <div className="text-center mb-16">
@@ -50,12 +65,11 @@ export const Contact = () => {
               <span className="font-semibold">Contact Us</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-gray-900">
-                Get in Touch
-              </span>
+              <span className="text-gray-900">Get in Touch</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Ready to start your English learning journey? We're here to help you every step of the way.
+              Ready to start your English learning journey? We're here to help
+              you every step of the way.
             </p>
           </div>
         </RevealWrapper>
@@ -66,75 +80,82 @@ export const Contact = () => {
             <RevealWrapper delay={200}>
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Connect With Us</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Connect With Us
+                  </h3>
                   <p className="text-gray-600 mb-8 leading-relaxed">
-                    Whether you're interested in our courses, need information about our programs, 
-                    or want to schedule a consultation, we'd love to hear from you.
+                    Whether you're interested in our courses, need information
+                    about our programs, or want to schedule a consultation, we'd
+                    love to hear from you.
                   </p>
                 </div>
 
                 {/* Contact Information Cards */}
                 <div className="space-y-4">
                   <div className="flex items-center p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 group">
-                    <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-3 rounded-lg mr-4 transform group-hover:scale-110 transition-transform duration-300">
+                    <div className="  p-3 rounded-lg mr-4 transform group-hover:scale-110 transition-transform duration-300">
                       <Mail className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">Email</h4>
-                      <p className="text-gray-600">info@succeedhouse.com</p>
+                      <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                        Email
+                      </h4>
+                      <p className="text-gray-600">suraj05kumar@gmail.com</p>
                     </div>
                   </div>
 
                   <div className="flex items-center p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 group">
-                    <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-3 rounded-lg mr-4 transform group-hover:scale-110 transition-transform duration-300">
+                    <div className=" p-3 rounded-lg mr-4 transform group-hover:scale-110 transition-transform duration-300">
                       <Phone className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors duration-300">Phone</h4>
-                      <p className="text-gray-600">+1 (555) 123-4567</p>
+                      <h4 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
+                        Phone
+                      </h4>
+                      <p className="text-gray-600">+91 8084079604</p>
                     </div>
                   </div>
 
                   <div className="flex items-center p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 group">
-                    <div className="bg-gradient-to-br from-orange-500 to-red-600 p-3 rounded-lg mr-4 transform group-hover:scale-110 transition-transform duration-300">
+                    <div className=" p-3 rounded-lg mr-4 transform group-hover:scale-110 transition-transform duration-300">
                       <MapPin className="w-6 h-6 text-orange-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">Location</h4>
-                      <p className="text-gray-600">123 Language Lane, Global City, GC 98765</p>
+                      <h4 className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                        Location
+                      </h4>
+                      <p className="text-gray-600">
+                        123 Language Lane, Global City, GC 98765
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Office Hours */}
                 <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/50">
-                  <h4 className="font-semibold text-gray-900 mb-4">Office Hours</h4>
+                  <h4 className="font-semibold text-gray-900 mb-4">
+                    Office Hours
+                  </h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Monday - Friday</span>
-                      <span className="font-medium text-gray-900">8:00 AM - 8:00 PM</span>
+                      <span className="font-medium text-gray-900">
+                        8:00 AM - 8:00 PM
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Saturday</span>
-                      <span className="font-medium text-gray-900">9:00 AM - 5:00 PM</span>
+                      <span className="font-medium text-gray-900">
+                        9:00 AM - 5:00 PM
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Sunday</span>
-                      <span className="font-medium text-gray-900">10:00 AM - 4:00 PM</span>
+                      <span className="font-medium text-gray-900">
+                        10:00 AM - 4:00 PM
+                      </span>
                     </div>
                   </div>
-                </div>
-
-                {/* Quick Actions */}
-                <div className="grid grid-cols-2 gap-4">
-                  <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-110 shadow-xl">
-                    <Phone className="w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-2" />
-                    <span className="font-medium text-sm sm:text-base">Call Now</span>
-                  </button>
-                  <button className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-110 shadow-xl">
-                    <Mail className="w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-2" />
-                    <span className="font-medium text-sm sm:text-base">Live Chat</span>
-                  </button>
                 </div>
               </div>
             </RevealWrapper>
@@ -144,17 +165,22 @@ export const Contact = () => {
               <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 relative overflow-hidden">
                 {/* Background Accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-100/50 to-transparent rounded-bl-full"></div>
-                
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Start a Conversation</h3>
-                
+
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Start a Conversation
+                </h3>
+
                 {isSubmitted ? (
                   <div className="text-center py-12">
                     <div className="bg-gradient-to-br from-green-400 to-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                       <Mail className="w-8 h-8 text-green-600" />
                     </div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h4>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">
+                      Message Sent!
+                    </h4>
                     <p className="text-gray-600">
-                      Thank you for reaching out. We'll get back to you within 24 hours.
+                      Thank you for reaching out. We'll get back to you within
+                      24 hours.
                     </p>
                   </div>
                 ) : (
@@ -192,14 +218,14 @@ export const Contact = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Company
+                        Phone Number
                       </label>
                       <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
+                        type="number"
+                        name="phone"
+                        value={formData.phone}
                         onChange={handleChange}
-                        placeholder="Your Company"
+                        placeholder="Your Phone Number"
                         className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 bg-white/80 focus:bg-white shadow-sm"
                       />
                     </div>
@@ -242,40 +268,6 @@ export const Contact = () => {
             </RevealWrapper>
           </div>
         </div>
-
-        {/* Additional Information */}
-        <RevealWrapper delay={600}>
-          <div className="mt-16 text-center">
-            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 max-w-4xl mx-auto relative overflow-hidden">
-              {/* Background Accent */}
-              <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-100/50 to-transparent rounded-br-full"></div>
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-indigo-100/50 to-transparent rounded-tl-full"></div>
-              
-              <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                Ready to Begin Your English Journey?
-              </h4>
-              <p className="text-gray-600 mb-6">
-                Join thousands of students who have transformed their English skills with our expert guidance. 
-                Schedule a free consultation to discuss your learning goals and find the perfect course for you.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button 
-                  size="lg"
-                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-3 shadow-lg transform hover:scale-105 transition-all duration-300"
-                >
-                  Schedule Free Consultation
-                </Button>
-                <Button 
-                  variant="secondary"
-                  size="lg"
-                  className="border-2 border-blue-300 text-blue-700 hover:bg-blue-50 px-8 py-3 shadow-lg transform hover:scale-105 transition-all duration-300"
-                >
-                  Download Course Brochure
-                </Button>
-              </div>
-            </div>
-          </div>
-        </RevealWrapper>
       </div>
     </section>
   );
