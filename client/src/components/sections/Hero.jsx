@@ -142,6 +142,11 @@ export const Hero = () => {
       {/* Hero Content */}
       <div className="relative z-20 text-center text-white px-6 max-w-5xl mx-auto">
         <div className="mb-8">
+          <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-6 inline-block">
+            <p className="text-white font-medium text-lg">
+              Welcome to SUCCEED HOUSE OF ENGLISH! 🎉
+            </p>
+          </div>
           <h3 className="text-lg md:text-xl font-medium mb-2 opacity-90 animate-fade-in-up">
             {slides[currentSlide].title}
           </h3>
