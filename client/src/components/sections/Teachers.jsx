@@ -91,7 +91,7 @@ export const Teachers = () => {
         </RevealWrapper>
 
         {/* Teachers Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
           {teachers.map((teacher, index) => (
             <RevealWrapper key={teacher.id} delay={100 * (index + 1)}>
               <div 
@@ -105,7 +105,7 @@ export const Teachers = () => {
                     <img
                       src={teacher.image}
                       alt={teacher.name}
-                      className="w-32 h-32 object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     
                     {/* Gradient Border */}
@@ -126,7 +126,7 @@ export const Teachers = () => {
                 </div>
                 
                 <div className="transition-all duration-300">
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300 mb-1">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300 mb-1 text-center">
                     {teacher.name}
                   </h3>
                   <p className="text-sm font-medium text-indigo-600 mb-2">{teacher.specialization}</p>

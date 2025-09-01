@@ -170,7 +170,7 @@ export const Hero = () => {
           <Button 
             size="lg" 
             onClick={() => scrollToSection('courses')}
-            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 text-lg shadow-2xl transform hover:scale-105"
+            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-2xl transform hover:scale-105 w-full sm:w-auto"
           >
             Explore Our Courses
           </Button>
@@ -178,7 +178,7 @@ export const Hero = () => {
             variant="secondary"
             size="lg" 
             onClick={openRegistrationModal}
-            className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg transform hover:scale-105"
+            className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-gray-900 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg transform hover:scale-105 w-full sm:w-auto"
           >
             Register Now
           </Button>
@@ -186,7 +186,7 @@ export const Hero = () => {
             variant="outline" 
             size="lg" 
             onClick={() => scrollToSection('testimonials')}
-            className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg transform hover:scale-105"
+            className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-gray-900 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg transform hover:scale-105 w-full sm:w-auto"
           >
             Hear from Our Students
           </Button>
@@ -202,12 +202,12 @@ export const Hero = () => {
       </div>
 
       {/* Slide Information Overlay */}
-      <div className="absolute top-24 right-4 md:right-8 z-30 bg-gradient-to-br from-black/40 to-gray-900/40 backdrop-blur-md rounded-xl p-4 text-white max-w-xs border border-white/20">
+      <div className="absolute top-24 right-4 md:right-8 z-30 bg-gradient-to-br from-black/40 to-gray-900/40 backdrop-blur-md rounded-xl p-3 md:p-4 text-white max-w-xs border border-white/20 hidden sm:block">
         <div className="text-sm opacity-75 mb-1">
           {currentSlide + 1} / {slides.length}
         </div>
-        <h4 className="font-semibold text-lg mb-1">{slides[currentSlide].title}</h4>
-        <p className="text-sm opacity-90">{slides[currentSlide].subtitle}</p>
+        <h4 className="font-semibold text-base md:text-lg mb-1">{slides[currentSlide].title}</h4>
+        <p className="text-xs md:text-sm opacity-90">{slides[currentSlide].subtitle}</p>
       </div>
       
       <RegistrationModal 

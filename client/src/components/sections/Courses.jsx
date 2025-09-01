@@ -42,21 +42,21 @@ export const Courses = () => {
             </h2>
           </div>
         </RevealWrapper>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {courses.map((course, index) => (
             <RevealWrapper key={course.id} delay={100 * (index + 1)}>
-              <div className={`bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border-2 ${course.borderColor} transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl group relative overflow-hidden`}>
+              <div className={`bg-white/80 backdrop-blur-sm p-6 lg:p-8 rounded-2xl shadow-xl border-2 ${course.borderColor} transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl group relative overflow-hidden`}>
                 {/* Background Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-gray-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className={`${course.iconBg} p-4 rounded-full inline-block mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-lg relative z-10`}>
                   {getIcon(course.icon)}
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-violet-600 transition-colors duration-300 relative z-10">{course.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed relative z-10">{course.description}</p>
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 group-hover:text-violet-600 transition-colors duration-300 relative z-10">{course.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-6 leading-relaxed relative z-10">{course.description}</p>
                 <ul className="text-left text-gray-700 space-y-3 mb-8 relative z-10">
                   {course.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center group-hover:text-gray-800 transition-colors duration-300">
+                    <li key={idx} className="flex items-center group-hover:text-gray-800 transition-colors duration-300 text-sm sm:text-base">
                       <CheckCircle className="w-5 h-5 text-emerald-600 mr-3 flex-shrink-0" />
                       <span>{feature}</span>
                     </li>

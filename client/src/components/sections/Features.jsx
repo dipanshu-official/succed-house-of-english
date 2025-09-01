@@ -74,15 +74,15 @@ export const Features = () => {
             </h2>
           </div>
         </RevealWrapper>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <RevealWrapper key={index} delay={feature.delay}>
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-white/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl group">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 lg:p-8 border border-white/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl group">
                 <div className={`${feature.bgColor} p-4 rounded-full inline-block mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <feature.icon className={`w-8 h-8 ${feature.iconColor || 'text-white'}`} />
+                  <feature.icon className={`w-6 sm:w-8 h-6 sm:h-8 ${feature.iconColor || 'text-white'}`} />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors duration-300">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors duration-300">{feature.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.description}</p>
                 
                 {/* Decorative Element */}
                 <div className="mt-6 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>

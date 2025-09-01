@@ -65,8 +65,8 @@ export const Contact = () => {
           </div>
         </RevealWrapper>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Connect With Us Section */}
             <RevealWrapper delay={200}>
               <div className="space-y-8">
@@ -131,14 +131,14 @@ export const Contact = () => {
                 </div>
 
                 {/* Quick Actions */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-110 shadow-xl">
-                    <Phone className="w-5 h-5 mx-auto mb-2" />
-                    <span className="font-medium">Call Now</span>
+                    <Phone className="w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-2" />
+                    <span className="font-medium text-sm sm:text-base">Call Now</span>
                   </button>
                   <button className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-110 shadow-xl">
-                    <Mail className="w-5 h-5 mx-auto mb-2" />
-                    <span className="font-medium">Live Chat</span>
+                    <Mail className="w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-2" />
+                    <span className="font-medium text-sm sm:text-base">Live Chat</span>
                   </button>
                 </div>
               </div>

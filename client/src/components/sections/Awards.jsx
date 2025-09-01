@@ -109,7 +109,7 @@ export const Awards = () => {
         </RevealWrapper>
 
         {/* Students Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
           {students.map((student, index) => (
             <RevealWrapper key={student.id} delay={100 * (index + 1)}>
               <div 
@@ -121,7 +121,7 @@ export const Awards = () => {
                   <img
                     src={student.image}
                     alt={student.name}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-32 sm:h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   
                   {/* Achievement Badge */}
@@ -145,7 +145,7 @@ export const Awards = () => {
                 </div>
                 
                 <div className="text-center">
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
                     {student.name}
                   </h3>
                   <div className="flex items-center justify-center gap-1 mt-2">
@@ -161,22 +161,22 @@ export const Awards = () => {
 
         {/* Achievement Stats */}
         <RevealWrapper delay={800}>
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-12 lg:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-orange-200">
-              <div className="text-3xl font-bold text-orange-600 mb-2">500+</div>
-              <div className="text-gray-700 font-medium">Successful Students</div>
+              <div className="text-2xl sm:text-3xl font-bold text-orange-600 mb-2">500+</div>
+              <div className="text-sm sm:text-base text-gray-700 font-medium">Successful Students</div>
             </div>
             <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-green-200">
-              <div className="text-3xl font-bold text-green-600 mb-2">95%</div>
-              <div className="text-gray-700 font-medium">Pass Rate</div>
+              <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">95%</div>
+              <div className="text-sm sm:text-base text-gray-700 font-medium">Pass Rate</div>
             </div>
             <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-200">
-              <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-              <div className="text-gray-700 font-medium">Countries</div>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-sm sm:text-base text-gray-700 font-medium">Countries</div>
             </div>
             <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-purple-200">
-              <div className="text-3xl font-bold text-purple-600 mb-2">10+</div>
-              <div className="text-gray-700 font-medium">Years Experience</div>
+              <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-2">10+</div>
+              <div className="text-sm sm:text-base text-gray-700 font-medium">Years Experience</div>
             </div>
           </div>
         </RevealWrapper>

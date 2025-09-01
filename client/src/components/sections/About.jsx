@@ -19,7 +19,7 @@ export const About = () => {
         <div className="absolute bottom-20 right-20 w-40 h-40 bg-green-500 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blue-500 rounded-full blur-3xl"></div>
       </div>
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <RevealWrapper>
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
@@ -42,22 +42,22 @@ export const About = () => {
         </RevealWrapper>
         
         <RevealWrapper delay={200}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="mt-12 lg:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <div className="bg-gradient-to-br from-orange-100 to-orange-200 h-64 rounded-xl shadow-lg flex items-center justify-center text-orange-700 font-semibold border-2 border-orange-300 flex-col transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-              <Users className="w-12 h-12 text-gray-500 mb-2" />
-              <span>Happy Students</span>
+              <div className="text-2xl sm:text-3xl font-bold text-orange-600 mb-2">500+</div>
+              <div className="text-sm sm:text-base text-gray-700 font-medium">Successful Students</div>
             </div>
             <div className="bg-gradient-to-br from-green-500 to-green-600 h-64 rounded-xl shadow-lg flex items-center justify-center text-white font-semibold border-2 border-green-700 flex-col transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-              <GraduationCap className="w-12 h-12 text-white mb-2" />
-              <span>Modern Classroom</span>
+              <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">95%</div>
+              <div className="text-sm sm:text-base text-gray-700 font-medium">Pass Rate</div>
             </div>
             <div className="bg-gradient-to-br from-blue-500 to-purple-600 h-64 rounded-xl shadow-lg flex items-center justify-center text-white font-semibold border-2 border-blue-700 flex-col transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-              <Globe className="w-12 h-12 text-white mb-2" />
-              <span>Global Community</span>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-sm sm:text-base text-gray-700 font-medium">Countries</div>
             </div>
             <div className="bg-gradient-to-br from-pink-100 to-purple-100 h-64 rounded-xl shadow-lg flex items-center justify-center text-purple-700 font-semibold border-2 border-purple-300 flex-col transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-              <Heart className="w-12 h-12 text-blue-900 mb-2" />
-              <span>Supportive Environment</span>
+              <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-2">10+</div>
+              <div className="text-sm sm:text-base text-gray-700 font-medium">Years Experience</div>
             </div>
           </div>
         </RevealWrapper>

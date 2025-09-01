@@ -116,52 +116,57 @@ export const Gallery = () => {
 
   return (
     <>
-      <section id="gallery" className="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50 relative overflow-hidden">
+      <section id="gallery" className="py-16 md:py-24 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-8">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-slate-400 to-gray-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full blur-3xl"></div>
         </div>
         
         <div className="container mx-auto px-6">
           <RevealWrapper>
             <div className="text-center mb-12 relative z-10">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-blue-600 text-white px-6 py-2 rounded-full mb-4">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-600 text-white px-6 py-2 rounded-full mb-4 shadow-lg">
                 <span className="font-semibold">Visual Tour</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-slate-700 via-gray-700 to-blue-700 bg-clip-text text-transparent">
+                <span className="text-white">
                   Our Learning Environment
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-200 max-w-2xl mx-auto">
                 Take a glimpse into our modern facilities, vibrant classrooms, and the inspiring moments that make learning English an unforgettable experience.
               </p>
             </div>
           </RevealWrapper>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {displayImages.map((image, index) => (
               <RevealWrapper key={image.id} delay={100 * (index + 1)}>
                 <div 
-                  className="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl border border-white/50"
+                  className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer transition-all duration-700 hover:-translate-y-6 hover:shadow-3xl border-2 border-white/20 break-inside-avoid mb-6 bg-white/10 backdrop-blur-sm"
                   onClick={() => openLightbox(image)}
                 >
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-white font-semibold text-lg mb-1">{image.title}</h3>
-                      <p className="text-blue-200 text-sm capitalize bg-blue-600/30 px-2 py-1 rounded-full inline-block">{image.category}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700">
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                        <h3 className="text-white font-bold text-xl mb-2 leading-tight">{image.title}</h3>
+                        <span className="inline-block bg-gradient-to-r from-orange-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                          {image.category}
+                        </span>
+                      </div>
                     </div>
                   </div>
                   
-                  {/* Corner Accent */}
-                  <div className="absolute top-3 right-3 w-3 h-3 bg-gradient-to-br from-orange-400 to-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Shimmer Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
                 </div>
               </RevealWrapper>
             ))}
@@ -173,7 +178,7 @@ export const Gallery = () => {
               <Button
                 onClick={() => navigate('/gallery')}
                 size="lg"
-                className="bg-gradient-to-r from-slate-600 to-blue-600 hover:from-slate-700 hover:to-blue-700 text-white px-8 py-4 text-lg shadow-xl transform hover:scale-105 border border-white/20"
+                className="bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-600 hover:to-pink-700 text-white px-8 py-4 text-lg shadow-2xl transform hover:scale-110 border-2 border-white/30 backdrop-blur-sm"
               >
                 View All Images ({galleryImages.length})
               </Button>

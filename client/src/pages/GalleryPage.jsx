@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ArrowLeft, Award, Trophy } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { RevealWrapper } from '../components/ui/RevealWrapper';
 
@@ -218,27 +218,50 @@ export const GalleryPage = () => {
           </RevealWrapper>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
             {filteredImages.map((image, index) => (
               <RevealWrapper key={image.id} delay={50 * (index + 1)}>
                 <div 
-                  className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                  className="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl break-inside-avoid mb-6 bg-white"
                   onClick={() => openLightbox(image)}
                 >
+                  {/* Image Container */}
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-white font-semibold text-lg mb-1">{image.title}</h3>
-                      <p className="text-gray-200 text-sm capitalize">{image.category}</p>
+                  
+                  {/* Overlay with Information */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 className="text-white font-bold text-xl mb-2 leading-tight">{image.title}</h3>
+                        <p className="text-gray-200 text-sm mb-3 leading-relaxed">{image.description}</p>
+                        <div className="flex items-center justify-between">
+                          <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                            {image.category}
+                          </span>
+                          <div className="flex items-center gap-1">
+                            <div className="w-2 h-2 bg-white rounded-full opacity-60"></div>
+                            <div className="w-2 h-2 bg-white rounded-full opacity-40"></div>
+                            <div className="w-2 h-2 bg-white rounded-full opacity-20"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  
+                  {/* Corner Badge */}
+                  <div className="absolute top-4 right-4 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-md rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-75 group-hover:scale-100">
+                    <Award className="w-4 h-4 text-white" />
                   </div>
+                  
+                  {/* Shimmer Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
+                  
+                  {/* Border Glow */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-gradient-to-r group-hover:from-orange-400 group-hover:to-pink-400 transition-all duration-500"></div>
                 </div>
               </RevealWrapper>
             ))}
@@ -246,11 +269,17 @@ export const GalleryPage = () => {
 
           {/* Results Count */}
           <RevealWrapper delay={300}>
-            <div className="text-center mt-12">
-              <p className="text-gray-600">
-                Showing {filteredImages.length} of {galleryImages.length} images
-                {activeFilter !== 'all' && ` in "${categories.find(c => c.id === activeFilter)?.label}"`}
-              </p>
+            <div className="text-center mt-16">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/50 max-w-md mx-auto">
+                <Trophy className="w-8 h-8 text-orange-500 mx-auto mb-3" />
+                <p className="text-gray-700 font-semibold text-lg">
+                  Showing {filteredImages.length} of {galleryImages.length} images
+                  {activeFilter !== 'all' && ` in "${categories.find(c => c.id === activeFilter)?.label}"`}
+                </p>
+                <p className="text-gray-500 text-sm mt-2">
+                  Capturing moments of learning excellence
+                </p>
+              </div>
             </div>
           </RevealWrapper>
         </div>
