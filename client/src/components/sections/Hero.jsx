@@ -11,28 +11,28 @@ export const Hero = () => {
   const slides = [
     {
       id: '1',
-      src: '/hero/banner1.jpg',
+      src: 'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1600',
       alt: 'Modern classroom with engaged students',
       title: 'Interactive Learning Environment',
       subtitle: 'Experience dynamic classrooms designed for effective English learning'
     },
     {
       id: '2',
-      src: '/hero/banner2.jpg',
+      src: 'https://images.pexels.com/photos/5212700/pexels-photo-5212700.jpeg?auto=compress&cs=tinysrgb&w=1600',
       alt: 'Expert teacher explaining concepts',
       title: 'Expert Instruction',
       subtitle: 'Learn from certified professionals with years of teaching experience'
     },
     {
       id: '3',
-      src: '/hero/banner3.jpg',
+      src: 'https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&w=1600',
       alt: 'Students collaborating in group discussion',
       title: 'Collaborative Learning',
       subtitle: 'Build confidence through interactive group activities and discussions'
     },
     {
       id: '4',
-      src: '/hero/banner4.jpg',
+      src: 'https://images.pexels.com/photos/5212662/pexels-photo-5212662.jpeg?auto=compress&cs=tinysrgb&w=1600',
       alt: 'Online learning setup with technology',
       title: 'Flexible Online Classes',
       subtitle: 'Access quality education from anywhere with our virtual classrooms'
@@ -101,7 +101,7 @@ export const Hero = () => {
               alt={slide.alt}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/60 via-blue-900/50 to-green-900/60"></div>
           </div>
         ))}
       </div>
@@ -142,7 +142,7 @@ export const Hero = () => {
       {/* Hero Content */}
       <div className="relative z-20 text-center text-white px-6 max-w-5xl mx-auto">
         <div className="mb-8">
-          <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-6 inline-block">
+          <div className="bg-gradient-to-r from-orange-500/20 to-green-500/20 backdrop-blur-sm rounded-full px-6 py-3 mb-6 inline-block border border-white/20">
             <p className="text-white font-medium text-lg">
               Welcome to SUCCEED HOUSE OF ENGLISH! 🎉
             </p>
@@ -157,7 +157,7 @@ export const Hero = () => {
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up animation-delay-500">
           Unlock Your Global Potential with{' '}
-          <span className="bg-gradient-to-r from-orange-400 to-green-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-orange-300 via-yellow-300 to-green-300 bg-clip-text text-transparent">
             Master English
           </span>
         </h1>
@@ -170,7 +170,7 @@ export const Hero = () => {
           <Button 
             size="lg" 
             onClick={() => scrollToSection('courses')}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg shadow-2xl"
+            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 text-lg shadow-2xl transform hover:scale-105"
           >
             Explore Our Courses
           </Button>
@@ -178,7 +178,7 @@ export const Hero = () => {
             variant="secondary"
             size="lg" 
             onClick={openRegistrationModal}
-            className="bg-white bg-opacity-20 backdrop-blur-sm border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg"
+            className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg transform hover:scale-105"
           >
             Register Now
           </Button>
@@ -186,7 +186,7 @@ export const Hero = () => {
             variant="outline" 
             size="lg" 
             onClick={() => scrollToSection('testimonials')}
-            className="bg-white bg-opacity-20 backdrop-blur-sm border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg"
+            className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg transform hover:scale-105"
           >
             Hear from Our Students
           </Button>
@@ -202,7 +202,7 @@ export const Hero = () => {
       </div>
 
       {/* Slide Information Overlay */}
-      <div className="absolute top-24 right-4 md:right-8 z-30 bg-black bg-opacity-30 backdrop-blur-sm rounded-lg p-4 text-white max-w-xs">
+      <div className="absolute top-24 right-4 md:right-8 z-30 bg-gradient-to-br from-black/40 to-gray-900/40 backdrop-blur-md rounded-xl p-4 text-white max-w-xs border border-white/20">
         <div className="text-sm opacity-75 mb-1">
           {currentSlide + 1} / {slides.length}
         </div>

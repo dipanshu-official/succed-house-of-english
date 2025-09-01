@@ -40,12 +40,24 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-gray-50">
+    <section id="contact" className="py-16 md:py-24 bg-gradient-to-br from-slate-100 via-gray-100 to-blue-100 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-16 left-16 w-40 h-40 bg-gradient-to-br from-slate-400 to-gray-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-16 right-16 w-48 h-48 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full blur-3xl"></div>
+      </div>
+      
       <div className="container mx-auto px-6">
         <RevealWrapper>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Get in Touch
+          <div className="text-center mb-16 relative z-10">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-blue-600 text-white px-6 py-2 rounded-full mb-4">
+              <Mail className="w-5 h-5" />
+              <span className="font-semibold">Contact Us</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-slate-700 via-gray-700 to-blue-700 bg-clip-text text-transparent">
+                Get in Touch
+              </span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Ready to start your English learning journey? We're here to help you every step of the way.
@@ -68,39 +80,39 @@ export const Contact = () => {
 
                 {/* Contact Information Cards */}
                 <div className="space-y-4">
-                  <div className="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
-                    <div className="bg-blue-100 p-3 rounded-lg mr-4">
+                  <div className="flex items-center p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 group">
+                    <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-3 rounded-lg mr-4 transform group-hover:scale-110 transition-transform duration-300">
                       <Mail className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Email</h4>
+                      <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">Email</h4>
                       <p className="text-gray-600">info@succeedhouse.com</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
-                    <div className="bg-green-100 p-3 rounded-lg mr-4">
+                  <div className="flex items-center p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 group">
+                    <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-3 rounded-lg mr-4 transform group-hover:scale-110 transition-transform duration-300">
                       <Phone className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Phone</h4>
+                      <h4 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors duration-300">Phone</h4>
                       <p className="text-gray-600">+1 (555) 123-4567</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
-                    <div className="bg-orange-100 p-3 rounded-lg mr-4">
+                  <div className="flex items-center p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 group">
+                    <div className="bg-gradient-to-br from-orange-500 to-red-600 p-3 rounded-lg mr-4 transform group-hover:scale-110 transition-transform duration-300">
                       <MapPin className="w-6 h-6 text-orange-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Location</h4>
+                      <h4 className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">Location</h4>
                       <p className="text-gray-600">123 Language Lane, Global City, GC 98765</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Office Hours */}
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/50">
                   <h4 className="font-semibold text-gray-900 mb-4">Office Hours</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
@@ -120,11 +132,11 @@ export const Contact = () => {
 
                 {/* Quick Actions */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-110 shadow-xl">
                     <Phone className="w-5 h-5 mx-auto mb-2" />
                     <span className="font-medium">Call Now</span>
                   </button>
-                  <button className="bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  <button className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-110 shadow-xl">
                     <Mail className="w-5 h-5 mx-auto mb-2" />
                     <span className="font-medium">Live Chat</span>
                   </button>
@@ -134,12 +146,15 @@ export const Contact = () => {
 
             {/* Start a Conversation Section */}
             <RevealWrapper delay={400}>
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 relative overflow-hidden">
+                {/* Background Accent */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-100/50 to-transparent rounded-bl-full"></div>
+                
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Start a Conversation</h3>
                 
                 {isSubmitted ? (
                   <div className="text-center py-12">
-                    <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="bg-gradient-to-br from-green-400 to-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                       <Mail className="w-8 h-8 text-green-600" />
                     </div>
                     <h4 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h4>
@@ -161,7 +176,7 @@ export const Contact = () => {
                           onChange={handleChange}
                           required
                           placeholder="John Doe"
-                          className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 bg-gray-50 focus:bg-white"
+                          className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 bg-white/80 focus:bg-white shadow-sm"
                         />
                       </div>
                       <div>
@@ -175,7 +190,7 @@ export const Contact = () => {
                           onChange={handleChange}
                           required
                           placeholder="john@company.com"
-                          className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 bg-gray-50 focus:bg-white"
+                          className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 bg-white/80 focus:bg-white shadow-sm"
                         />
                       </div>
                     </div>
@@ -190,7 +205,7 @@ export const Contact = () => {
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Your Company"
-                        className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 bg-gray-50 focus:bg-white"
+                        className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 bg-white/80 focus:bg-white shadow-sm"
                       />
                     </div>
 
@@ -205,14 +220,14 @@ export const Contact = () => {
                         required
                         rows={5}
                         placeholder="Tell us about your English learning goals or how we can help..."
-                        className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 bg-gray-50 focus:bg-white resize-none"
+                        className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 bg-white/80 focus:bg-white resize-none shadow-sm"
                       />
                     </div>
 
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                      className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center justify-center">
@@ -236,7 +251,11 @@ export const Contact = () => {
         {/* Additional Information */}
         <RevealWrapper delay={600}>
           <div className="mt-16 text-center">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 max-w-4xl mx-auto">
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 max-w-4xl mx-auto relative overflow-hidden">
+              {/* Background Accent */}
+              <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-100/50 to-transparent rounded-br-full"></div>
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-indigo-100/50 to-transparent rounded-tl-full"></div>
+              
               <h4 className="text-xl font-semibold text-gray-900 mb-4">
                 Ready to Begin Your English Journey?
               </h4>
@@ -247,14 +266,14 @@ export const Contact = () => {
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button 
                   size="lg"
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-3 shadow-lg transform hover:scale-105 transition-all duration-300"
                 >
                   Schedule Free Consultation
                 </Button>
                 <Button 
                   variant="secondary"
                   size="lg"
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3"
+                  className="border-2 border-blue-300 text-blue-700 hover:bg-blue-50 px-8 py-3 shadow-lg transform hover:scale-105 transition-all duration-300"
                 >
                   Download Course Brochure
                 </Button>
