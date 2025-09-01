@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { Button } from "../ui/Button";
 import { RevealWrapper } from "../ui/RevealWrapper";
 import axios from "axios"
+import toast from "react-hot-toast";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -49,6 +50,7 @@ export const Contact = () => {
          
         });
       }
+      toast.success("Message sent successfully!");
     } catch (error) {
       console.error(error.response?.data || error.message);
       setStatus("Failed to send message.");

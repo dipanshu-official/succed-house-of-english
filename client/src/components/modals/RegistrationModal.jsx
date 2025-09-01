@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
-import { User, Mail, Phone, Calendar, BookOpen, GraduationCap, Clock, MapPin } from 'lucide-react';
-import { Modal } from '../ui/Modal';
-import { Button } from '../ui/Button';
+import React, { useState } from "react";
+import {
+  User,
+  Mail,
+  Phone,
+  Calendar,
+  BookOpen,
+  GraduationCap,
+  Clock,
+  MapPin,
+} from "lucide-react";
+import { Modal } from "../ui/Modal";
+import { Button } from "../ui/Button";
+import axios from "axios";
 
-
-
-
-
-export const RegistrationModal= ({ isOpen, onClose }) => {
+export const RegistrationModal = ({ isOpen, onClose }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    dateOfBirth: '',
-    course: '',
-    level: '',
-    schedule: '',
-    location: '',
-    goals: '',
-    experience: '',
-    hearAbout: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    dateOfBirth: "",
+    course: "",
+    level: "",
+    schedule: "",
+    location: "",
+    goals: "",
+    experience: "",
+    hearAbout: "",
   });
 
   const totalSteps = 3;
@@ -29,7 +35,7 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -45,35 +51,65 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    console.log("hii");
     e.preventDefault();
-    console.log('Registration submitted:', formData);
-    // Handle form submission here
-    onClose();
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      dateOfBirth: '',
-      course: '',
-      level: '',
-      schedule: '',
-      location: '',
-      goals: '',
-      experience: '',
-      hearAbout: ''
-    });
-    setCurrentStep(1);
+    console.log("Registration submitted:", formData);
+
+    try {
+      // Send a POST request to your Node.js API
+      const response = await axios.post(
+        "http://localhost:5000/api/register",
+        formData
+      );
+      console.log("API Response:", response.data);
+
+      // Handle successful submission
+      onClose();
+      // You could also show a success message to the user here
+    } catch (error) {
+      console.error(
+        "Error submitting form:",
+        error.response ? error.response.data : error.message
+      );
+      // Handle submission errors
+      // You could show an error message to the user here
+    } finally {
+      // Reset form regardless of success or failure
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        dateOfBirth: "",
+        course: "",
+        level: "",
+        schedule: "",
+        location: "",
+        goals: "",
+        experience: "",
+        hearAbout: "",
+      });
+      setCurrentStep(1);
+    }
   };
 
   const isStepValid = () => {
     switch (currentStep) {
       case 1:
-        return formData.firstName && formData.lastName && formData.email && formData.phone;
+        return (
+          formData.firstName &&
+          formData.lastName &&
+          formData.email &&
+          formData.phone
+        );
       case 2:
-        return formData.course && formData.level && formData.schedule && formData.location;
+        return (
+          formData.course &&
+          formData.level &&
+          formData.schedule &&
+          formData.location
+        );
       case 3:
         return formData.goals && formData.experience;
       default:
@@ -82,12 +118,11 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal 
-      isOpen={isOpen} 
-      onClose={onClose} 
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
       title="Register for English Courses"
       size="lg"
-      
     >
       <div className="mb-6 ">
         {/* Progress Bar */}
@@ -97,8 +132,8 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm transition-colors duration-300 ${
                   step <= currentStep
-                    ? 'bg-orange-500 text-white'
-                    : 'bg-gray-200 text-gray-500'
+                    ? "bg-orange-500 text-white"
+                    : "bg-gray-200 text-gray-500"
                 }`}
               >
                 {step}
@@ -106,7 +141,7 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
               {step < 3 && (
                 <div
                   className={`w-16 h-1 mx-2 transition-colors duration-300 ${
-                    step < currentStep ? 'bg-orange-500' : 'bg-gray-200'
+                    step < currentStep ? "bg-orange-500" : "bg-gray-200"
                   }`}
                 />
               )}
@@ -115,11 +150,13 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
         </div>
         <div className="text-center">
           <h3 className="text-lg font-semibold text-gray-900">
-            {currentStep === 1 && 'Personal Information'}
-            {currentStep === 2 && 'Course Preferences'}
-            {currentStep === 3 && 'Learning Goals'}
+            {currentStep === 1 && "Personal Information"}
+            {currentStep === 2 && "Course Preferences"}
+            {currentStep === 3 && "Learning Goals"}
           </h3>
-          <p className="text-sm text-gray-600">Step {currentStep} of {totalSteps}</p>
+          <p className="text-sm text-gray-600">
+            Step {currentStep} of {totalSteps}
+          </p>
         </div>
       </div>
 
@@ -222,7 +259,9 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
               >
                 <option value="">Select a course</option>
                 <option value="general">General English Program</option>
-                <option value="exam-prep">Exam Preparation (IELTS/TOEFL)</option>
+                <option value="exam-prep">
+                  Exam Preparation (IELTS/TOEFL)
+                </option>
                 <option value="business">Business English</option>
                 <option value="conversation">Conversation Classes</option>
                 <option value="academic">Academic English</option>
@@ -244,7 +283,9 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
                 <option value="beginner">Beginner (A1)</option>
                 <option value="elementary">Elementary (A2)</option>
                 <option value="intermediate">Intermediate (B1)</option>
-                <option value="upper-intermediate">Upper Intermediate (B2)</option>
+                <option value="upper-intermediate">
+                  Upper Intermediate (B2)
+                </option>
                 <option value="advanced">Advanced (C1)</option>
                 <option value="proficient">Proficient (C2)</option>
                 <option value="unsure">Not sure - Need assessment</option>
@@ -358,7 +399,7 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
               </Button>
             )}
           </div>
-          
+
           <div className="flex space-x-3">
             <Button
               type="button"
@@ -381,6 +422,7 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
               <Button
                 type="submit"
                 disabled={!isStepValid()}
+                onClick={handleSubmit}
                 className="disabled:opacity-50 disabled:cursor-not-allowed bg-green-600 hover:bg-green-700"
               >
                 Complete Registration
@@ -398,7 +440,9 @@ export const RegistrationModal= ({ isOpen, onClose }) => {
             <span className="font-medium">Almost there!</span>
           </div>
           <p className="text-sm text-green-700 mt-1">
-            Click "Complete Registration" to submit your application. We'll contact you within 24 hours to schedule your placement test and discuss next steps.
+            Click "Complete Registration" to submit your application. We'll
+            contact you within 24 hours to schedule your placement test and
+            discuss next steps.
           </p>
         </div>
       )}
