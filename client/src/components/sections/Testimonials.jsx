@@ -6,22 +6,16 @@ import { RevealWrapper } from '../ui/RevealWrapper';
 
 export const Testimonials= () => {
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-gradient-to-br from-rose-50 via-pink-50 to-orange-50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-8">
-        <div className="absolute top-16 right-16 w-36 h-36 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-16 left-16 w-44 h-44 bg-gradient-to-br from-pink-400 to-orange-500 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 bg-gradient-to-br from-orange-400 to-red-500 rounded-full blur-3xl"></div>
-      </div>
+    <section id="testimonials" className="py-16 md:py-24 bg-white">
       
       <div className="container mx-auto px-6 text-center">
         <RevealWrapper>
-          <div className="mb-12 relative z-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 to-pink-600 text-white px-6 py-2 rounded-full mb-4">
+          <div className="mb-12">
+            <div className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2 rounded-full mb-4">
               <span className="font-semibold">Student Voices</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-rose-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
+              <span className="text-gray-900">
                 What Our Students Say
               </span>
             </h2>

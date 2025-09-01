@@ -52,23 +52,17 @@ export const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-16 md:py-24 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-16 left-16 w-32 h-32 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-16 right-16 w-40 h-40 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full blur-3xl"></div>
-      </div>
+    <section id="features" className="py-16 md:py-24 bg-white">
       
       <div className="container mx-auto px-6 text-center">
         <RevealWrapper>
           <div className="mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full mb-4">
               <BookOpen className="w-5 h-5" />
               <span className="font-semibold">Our Advantages</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
+              <span className="text-gray-900">
                 Why Choose SUCCEED HOUSE OF ENGLISH?
               </span>
             </h2>

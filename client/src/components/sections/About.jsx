@@ -12,16 +12,10 @@ export const About = () => {
   };
 
   return (
-    <section id="about" className="py-16 md:py-24 bg-gradient-to-br from-blue-50 via-white to-green-50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-orange-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-green-500 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blue-500 rounded-full blur-3xl"></div>
-      </div>
+    <section id="about" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <RevealWrapper>
-          <div className="relative z-10">
+          <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
               Our Vision: <span className="bg-gradient-to-r from-orange-600 to-green-600 bg-clip-text text-transparent">Bridging Worlds Through Language</span>
             </h2>

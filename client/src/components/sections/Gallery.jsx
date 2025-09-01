@@ -116,18 +116,12 @@ export const Gallery = () => {
 
   return (
     <>
-      <section id="gallery" className="py-16 md:py-24 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-8">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full blur-3xl"></div>
-        </div>
+      <section id="gallery" className="py-16 md:py-24 bg-gray-900">
         
         <div className="container mx-auto px-6">
           <RevealWrapper>
-            <div className="text-center mb-12 relative z-10">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-600 text-white px-6 py-2 rounded-full mb-4 shadow-lg">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-2 rounded-full mb-4">
                 <span className="font-semibold">Visual Tour</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">

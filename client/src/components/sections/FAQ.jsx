@@ -11,21 +11,16 @@ export const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-8">
-        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full blur-3xl"></div>
-      </div>
+    <section id="faq" className="py-16 md:py-24 bg-gray-50">
       
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <RevealWrapper>
-          <div className="text-center mb-12 relative z-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2 rounded-full mb-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full mb-4">
               <span className="font-semibold">FAQ</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="text-gray-900">
                 Frequently Asked Questions
               </span>
             </h2>

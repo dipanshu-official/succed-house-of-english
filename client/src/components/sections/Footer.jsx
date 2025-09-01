@@ -18,27 +18,22 @@ export const Footer= () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 text-gray-300 py-10 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-orange-500 to-red-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full blur-3xl"></div>
-      </div>
+    <footer className="bg-gray-900 text-gray-300 py-10">
       
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div className="relative z-10">
-          <h3 className="text-xl font-bold text-white mb-4">SUCCEED HOUSE OF ENGLISH</h3>
-          <p className="text-sm">
+      <div className="container mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div>
+          <h3 className="text-lg sm:text-xl font-bold text-white mb-4">SUCCEED HOUSE OF ENGLISH</h3>
+          <p className="text-sm sm:text-base">
             Empowering students to communicate confidently and achieve their global aspirations through exceptional English language education.
           </p>
         </div>
-        <div className="relative z-10">
-          <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+        <div>
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-4">Quick Links</h3>
           <ul className="space-y-2">
             <li>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="hover:text-orange-400 transition duration-300 text-left transform hover:translate-x-1"
+                className="hover:text-orange-400 transition duration-300 text-left transform hover:translate-x-1 text-sm sm:text-base"
               >
                 About Us
               </button>
@@ -102,12 +97,12 @@ export const Footer= () => {
           </ul>
         </div>
         <div className="relative z-10">
-          <h3 className="text-lg font-semibold text-white mb-4">Connect</h3>
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-4">Connect</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:text-blue-400 transition duration-300 flex items-center gap-2 transform hover:translate-x-1">
-                <Facebook className="w-5 h-5" />
-                Facebook
+              <a href="#" className="hover:text-blue-400 transition duration-300 flex items-center gap-2 transform hover:translate-x-1 text-sm sm:text-base">
+                <Facebook className="w-4 sm:w-5 h-4 sm:h-5" />
+                <span>Facebook</span>
               </a>
             </li>
             <li>
@@ -131,27 +126,27 @@ export const Footer= () => {
           </ul>
         </div>
         <div className="relative z-10">
-          <h3 className="text-lg font-semibold text-white mb-4">Newsletter</h3>
-          <p className="text-sm mb-4">Stay updated with our latest news and offers.</p>
-          <form onSubmit={handleNewsletterSubmit} className="flex">
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-4">Newsletter</h3>
+          <p className="text-xs sm:text-sm mb-4">Stay updated with our latest news and offers.</p>
+          <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 sm:gap-0">
             <input
               type="email"
               placeholder="Your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="p-2 rounded-l-md bg-gray-800/80 border border-gray-600 text-white text-sm flex-1 focus:outline-none focus:ring-2 focus:ring-orange-400 backdrop-blur-sm"
+              className="p-2 rounded-md sm:rounded-l-md sm:rounded-r-none bg-gray-800/80 border border-gray-600 text-white text-sm flex-1 focus:outline-none focus:ring-2 focus:ring-orange-400 backdrop-blur-sm"
             />
             <button
               type="submit"
-              className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-2 rounded-r-md hover:from-orange-600 hover:to-red-600 transition duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-2 rounded-md sm:rounded-l-none sm:rounded-r-md hover:from-orange-600 hover:to-red-600 transition duration-300 transform hover:scale-105"
             >
               <Send className="w-5 h-5" />
             </button>
           </form>
         </div>
       </div>
-      <div className="border-t border-gray-700/50 mt-8 pt-8 text-center text-sm relative z-10">
+      <div className="border-t border-gray-700/50 mt-8 pt-8 text-center text-xs sm:text-sm relative z-10">
         &copy; 2024 SUCCEED HOUSE OF ENGLISH. All rights reserved.
       </div>
     </footer>

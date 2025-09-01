@@ -174,13 +174,13 @@ export const GalleryPage = () => {
     <>
       <div className="pt-20 min-h-screen bg-white">
         {/* Header Section */}
-        <div className="bg-gradient-to-br from-orange-500 to-green-600 text-white py-16">
+        <div className="bg-blue-600 text-white py-16">
           <div className="container mx-auto px-6">
             <RevealWrapper>
               <div className="flex items-center mb-6">
                 <button
                   onClick={() => navigate('/')}
-                  className="flex items-center gap-2 text-white hover:text-orange-200 transition-colors duration-300 mr-4"
+                  className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors duration-300 mr-4"
                 >
                   <ArrowLeft className="w-5 h-5" />
                   Back to Home
@@ -200,12 +200,12 @@ export const GalleryPage = () => {
         <div className="container mx-auto px-6 py-16">
           {/* Filter Buttons */}
           <RevealWrapper delay={200}>
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveFilter(category.id)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  className={`px-3 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all duration-300 text-sm sm:text-base ${
                     activeFilter === category.id
                       ? 'bg-orange-500 text-white shadow-lg transform scale-105'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
@@ -218,11 +218,11 @@ export const GalleryPage = () => {
           </RevealWrapper>
 
           {/* Gallery Grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
             {filteredImages.map((image, index) => (
               <RevealWrapper key={image.id} delay={50 * (index + 1)}>
                 <div 
-                  className="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl break-inside-avoid mb-6 bg-white"
+                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl break-inside-avoid mb-4 sm:mb-6 bg-white"
                   onClick={() => openLightbox(image)}
                 >
                   {/* Image Container */}
@@ -234,12 +234,12 @@ export const GalleryPage = () => {
                   
                   {/* Overlay with Information */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                       <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <h3 className="text-white font-bold text-xl mb-2 leading-tight">{image.title}</h3>
-                        <p className="text-gray-200 text-sm mb-3 leading-relaxed">{image.description}</p>
+                        <h3 className="text-white font-bold text-lg sm:text-xl mb-2 leading-tight">{image.title}</h3>
+                        <p className="text-gray-200 text-xs sm:text-sm mb-3 leading-relaxed">{image.description}</p>
                         <div className="flex items-center justify-between">
-                          <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                          <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
                             {image.category}
                           </span>
                           <div className="flex items-center gap-1">

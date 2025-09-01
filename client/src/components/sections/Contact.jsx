@@ -40,22 +40,17 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-gradient-to-br from-slate-100 via-gray-100 to-blue-100 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-16 left-16 w-40 h-40 bg-gradient-to-br from-slate-400 to-gray-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-16 right-16 w-48 h-48 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full blur-3xl"></div>
-      </div>
+    <section id="contact" className="py-16 md:py-24 bg-white">
       
       <div className="container mx-auto px-6">
         <RevealWrapper>
-          <div className="text-center mb-16 relative z-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-blue-600 text-white px-6 py-2 rounded-full mb-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full mb-4">
               <Mail className="w-5 h-5" />
               <span className="font-semibold">Contact Us</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-slate-700 via-gray-700 to-blue-700 bg-clip-text text-transparent">
+              <span className="text-gray-900">
                 Get in Touch
               </span>
             </h2>

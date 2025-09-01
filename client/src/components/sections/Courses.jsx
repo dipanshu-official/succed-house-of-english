@@ -20,23 +20,17 @@ export const Courses = () => {
   };
 
   return (
-    <section id="courses" className="py-16 md:py-24 bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 relative overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute inset-0 opacity-8">
-        <div className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-br from-violet-400 to-purple-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-gradient-to-br from-purple-400 to-fuchsia-500 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-gradient-to-br from-fuchsia-400 to-pink-500 rounded-full blur-3xl"></div>
-      </div>
+    <section id="courses" className="py-16 md:py-24 bg-gray-50">
       
       <div className="container mx-auto px-6 text-center">
         <RevealWrapper>
-          <div className="mb-12 relative z-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-purple-600 text-white px-6 py-2 rounded-full mb-4">
+          <div className="mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full mb-4">
               <BookOpen className="w-5 h-5" />
               <span className="font-semibold">Course Catalog</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 bg-clip-text text-transparent">
+              <span className="text-gray-900">
                 Our Comprehensive English Courses
               </span>
             </h2>
