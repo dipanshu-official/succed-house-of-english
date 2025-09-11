@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { RegistrationModal } from '../modals/RegistrationModal';
-import img1 from '../../public/hero/banner1.jpg'
-import img2 from '../../public/hero/banner2.jpg'
-import img3 from '../../public/hero/banner3.jpg'
-import img4 from '../../public/hero/banner4.jpg'
-
+import { images } from '../../public/imges';
 
 export const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -16,28 +12,28 @@ export const Hero = () => {
   const slides = [
     {
       id: '1',
-      src: img1,
+      src: images.banner1,
       alt: 'Modern classroom with engaged students',
       title: 'Interactive Learning Environment',
       subtitle: 'Experience dynamic classrooms designed for effective English learning'
     },
     {
       id: '2',
-      src: img2,
+      src: images.banner2,
       alt: 'Expert teacher explaining concepts',
       title: 'Expert Instruction',
       subtitle: 'Learn from certified professionals with years of teaching experience'
     },
     {
       id: '3',
-      src: img3,
+      src: images.banner3,
       alt: 'Students collaborating in group discussion',
       title: 'Collaborative Learning',
       subtitle: 'Build confidence through interactive group activities and discussions'
     },
     {
       id: '4',
-      src: img4,
+      src: images.banner4,
       alt: 'Online learning setup with technology',
       title: 'Flexible Online Classes',
       subtitle: 'Access quality education from anywhere with our virtual classrooms'
